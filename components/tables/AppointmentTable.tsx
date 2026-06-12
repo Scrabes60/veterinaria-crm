@@ -11,9 +11,9 @@ import {
   Clock,
   XCircle,
 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Input } from '@/components/ui/Input';
+import { Button } from '@/components/ui/Button.tsx';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card.tsx';
+import { Input } from '@/components/ui/Input.tsx';
 
 interface Appointment {
   id: string;
@@ -96,9 +96,9 @@ const getStatusBadge = (status: Appointment['status']) => {
   const badges: Record<Appointment['status'], { color: string; label: string }> = {
     scheduled: { color: 'bg-blue-100 text-blue-800', label: 'Programada' },
     checked_in: { color: 'bg-yellow-100 text-yellow-800', label: 'Check-in' },
-    done: { color: 'bg-success bg-opacity-10 text-success', label: 'Completada' },
-    no_show: { color: 'bg-warning bg-opacity-10 text-warning', label: 'No presentó' },
-    cancelled: { color: 'bg-danger bg-opacity-10 text-danger', label: 'Cancelada' },
+    done: { color: 'bg-green-100 text-green-800', label: 'Completada' },
+    no_show: { color: 'bg-orange-100 text-orange-800', label: 'No presentó' },
+    cancelled: { color: 'bg-red-100 text-red-800', label: 'Cancelada' },
   };
   const badge = badges[status];
   return (
@@ -230,14 +230,14 @@ const AppointmentTable: React.FC<AppointmentTableProps> = ({
                     <div className="flex items-center justify-center space-x-2">
                       <button
                         onClick={() => onEdit?.(appointment)}
-                        className="p-2 text-gray-600 hover:bg-blue-100 hover:text-primary rounded-lg transition-colors"
+                        className="p-2 text-gray-600 hover:bg-blue-100 hover:text-blue-600 rounded-lg transition-colors"
                         title="Editar"
                       >
                         <Edit2 size={16} />
                       </button>
                       <button
                         onClick={() => onDelete?.(appointment.id)}
-                        className="p-2 text-gray-600 hover:bg-red-100 hover:text-danger rounded-lg transition-colors"
+                        className="p-2 text-gray-600 hover:bg-red-100 hover:text-red-600 rounded-lg transition-colors"
                         title="Eliminar"
                       >
                         <Trash2 size={16} />
